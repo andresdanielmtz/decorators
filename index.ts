@@ -9,7 +9,7 @@ interface Coffee {
   cost: number;
 }
 
-class AmericanoDecorator implements Coffee {
+class CoffeeDecorator implements Coffee {
   private coffee: Coffee;
   constructor(coffee: Coffee) {
     this.coffee = coffee;
@@ -28,7 +28,7 @@ class AmericanoDecorator implements Coffee {
   }
 }
 
-class MilkDecorator extends AmericanoDecorator {
+class MilkDecorator extends CoffeeDecorator {
   constructor(coffee: Coffee) {
     super(coffee);
   }
@@ -42,7 +42,7 @@ class MilkDecorator extends AmericanoDecorator {
   }
 }
 
-class SugarDecorator extends AmericanoDecorator {
+class SugarDecorator extends CoffeeDecorator {
   constructor(coffee: Coffee) {
     super(coffee);
   }
@@ -77,7 +77,7 @@ function main() {
         baseCoffee.type = "Cold";
       }
 
-      let order: Coffee = new AmericanoDecorator(baseCoffee);
+      let order: Coffee = new CoffeeDecorator(baseCoffee);
 
       rl.question("Would you like to add milk? (y/n): ", (milkAns) => {
         if (milkAns.toLowerCase() === "y") {
